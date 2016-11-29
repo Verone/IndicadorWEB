@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="indexApp">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sistema de Indicadores</title>
+
+        <!-- AngularJS v1.6.0 -->
+        <script src="js/angular.min.js"></script>
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        
+        <!-- Específico da página -->
+        <script src="js/jquery.gridster.min.js"></script>
+        <script src="js/index.js"></script>
+
+        <script src="app/indexApp.js"></script>
+
+        <link rel="stylesheet" href="css/jquery.gridster.min.css" />
+        <link rel="stylesheet" href="css/index.css" />
+    </head>
+    <body ng-controller="indexController">
+        <!-- Inclusão do menu -->
+        <div ng-include src="'menu.html'"></div>
+
+        
+        <!--<div id="log"></div>-->
+        <span class="glyphicons glyphicons-fire"></span>
+        <div class="gridster ready">
+            <ul>
+                <li class="gs-w" data-row="1" data-col="1" data-sizex="4" data-sizey="4" ng-repeat="grid in grids track by $index">
+                    <span class="">{{grid.titulo}}</span>
+                    <br/>
+                    <span class="{{grid.icone}}"></span>
+                    <br/>
+                    <span class="label label-danger">{{grid.result}}</span>
+                    <br/>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

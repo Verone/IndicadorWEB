@@ -1,0 +1,37 @@
+.gridster .gs-w {
+  background: #BBB;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.gridster .player {
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  background: #BBB;
+}
+.gridster .gs-w.try {
+  background-image: url(../img/sprite.png);
+  background-repeat: no-repeat;
+  background-position: 37px -169px;
+}
+.gridster .preview-holder {
+  border: none !important;
+  border-radius: 0 !important;
+  background: red !important;
+}
+.gridster ul {
+  background-color: #EFEFEF;
+}
+.gridster li {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  line-height: 100%;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  list-style: none;
+  font-weight: bold;
+}

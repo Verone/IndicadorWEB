@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cadIndicadorModule">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Sistema de Indicadores</title>
+
+        <!-- AngularJS v1.5.8 -->
+        <script src="js/angular.min.js"></script>
+        
+        <!-- Controller -->
+        <script src="app/cadIndicador.js"></script>
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+    </head>
+    <body ng-controller="cadIndicadorController">
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <div ng-include src="'menu.html'"></div>
+
+        <div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#dados" aria-controls="dados" role="tab" data-toggle="tab">Dados</a></li>
+                <li role="presentation"><a href="#cadastros" aria-controls="cadastros" role="tab" data-toggle="tab">Cadastros</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="dados">
+                    <table class="table table-hover">
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <tr ng-repeat="indicador in indicadores" ng-click="selecionaIndicador(indicador)">
+                            <td>{{indicador.codigo}}</td>
+                            <td>{{indicador.descricao}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="cadastros">
+                    <form>
+                        <div class="form-group">
+                            <label for="InputCodigo" class="control-label">Código</label>
+                            <input type="code" class="form-control" ng-model="cadIndicador.codigo" disabled="true" placeholder="Código">
+                        </div>
+                        <div class="form-group">
+                            <label for="InputDescricao">Descrição</label>
+                            <input type="text" class="form-control" ng-model="cadIndicador.descricao" placeholder="Descrição">
+                        </div>
+                        <button type="submit" class="btn btn-success" ng-click="novo();">Novo</button>
+                        <button type="submit" class="btn btn-default" ng-click="salvar();">Salvar</button>
+                        <button type="button" class="btn btn-danger" ng-click="excluir();">Excluir</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

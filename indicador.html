@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="indicadorApp">
+    <head>
+        <title>Indicador WEB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- AngularJS v1.6.0 -->
+        <script src="js/angular.min.js"></script>
+        
+        <!-- Controller -->
+        <script src="app/indicadorApp.js"></script>
+    </head>
+    <body ng-controller="IndicadorController">
+        <form>
+            <label for='codigo'>Código: </label>
+            <input id="codigo" name="codigo" type="number" ng-model="indicador.id" />
+            <br>
+            <label for='descricao'>Descrição: </label>
+            <input id="descricao" name="descricao" type="text" ng-model="indicador.descricao" />
+            <br>
+            <label for='sql'>SQL: </label>
+            <input id="sql" name="sql" type="text" ng-model="indicador.sql" />
+            <br>
+            <button ng-click="salvar(indicador)"> Salvar </button>
+            <button ng-click="cancelar()"> Cancelar </button>
+        </form>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="indicador in indicadores track by $index">
+                    <td>{{indicador.id}}</td>
+                    <td>{{indicador.descricao}}</td>
+                    <td>{{indicador.sql}}</td>
+                    <td><a href="" ng-click="editar(indicador)">[Editar]</a></td>
+                    <td><a href="" ng-click="excluir(indicador)">[Excluir]</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
